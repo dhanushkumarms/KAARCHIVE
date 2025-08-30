@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KAARchive - Sign Up</title>
+  <link rel="stylesheet" href="../css/login.css">
+  <style>
+    .password-container {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+
+    .toggle-password {
+      position: absolute;
+      right: 10px;
+      cursor: pointer;
+    }
+
+    .toggle-password svg {
+      width: 20px;
+      height: 20px;
+      fill: #666;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2><span class="welcome">Create</span> <span class="back">Account!</span></h2>
+    <div class="login-box">
+      <form id="signup-form">
+        <div class="labelcont">
+          <label for="username">Username</label>
+        </div>
+        <input type="text" id="username" placeholder="Username" required>
+        <span class="error" id="username-error"></span>
+
+        <div class="labelcont">
+          <label for="email">Email</label>
+        </div>
+        <input type="email" id="email" placeholder="Email" required>
+        <span class="error" id="email-error"></span>
+
+        <div class="labelcont">
+          <label for="password">Password</label>
+        </div>
+        <div class="password-container">
+          <input type="password" id="password" placeholder="Password" required>
+          <span class="toggle-password" onclick="togglePassword('password', this)">
+            <svg viewBox="0 0 24 24">
+              <path d="M12 4.5C7.5 4.5 3.7 7.6 2 12c1.7 4.4 5.5 7.5 10 7.5s8.3-3.1 10-7.5c-1.7-4.4-5.5-7.5-10-7.5zm0 12c-2.5 0-4.5-2-4.5-4.5S9.5 7.5 12 7.5 16.5 9.5 16.5 12 14.5 16.5 12 16.5zm0-7.5a3 3 0 1 0 0 6 3 3 0 1 0 0-6z"/>
+            </svg>
+          </span>
+        </div>
+        <span class="error" id="password-error"></span>
+
+        <div class="labelcont">
+          <label for="confirm-password">Confirm Password</label>
+        </div>
+        <div class="password-container">
+          <input type="password" id="confirm-password" placeholder="Confirm Password" required>
+          <span class="toggle-password" onclick="togglePassword('confirm-password', this)">
+            <svg viewBox="0 0 24 24">
+              <path d="M12 4.5C7.5 4.5 3.7 7.6 2 12c1.7 4.4 5.5 7.5 10 7.5s8.3-3.1 10-7.5c-1.7-4.4-5.5-7.5-10-7.5zm0 12c-2.5 0-4.5-2-4.5-4.5S9.5 7.5 12 7.5 16.5 9.5 16.5 12 14.5 16.5 12 16.5zm0-7.5a3 3 0 1 0 0 6 3 3 0 1 0 0-6z"/>
+            </svg>
+          </span>
+        </div>
+        <span class="error" id="confirm-password-error"></span>
+
+        <button type="submit">Sign Up</button>
+      </form>
+      <p>Already have an account? <a href="login.html">Sign In</a></p>
+    </div>
+  </div>
+
+  <script src="../js/auth.js"></script>
+  <script>
+    function togglePassword(inputId, iconElement) {
+      const passwordInput = document.getElementById(inputId);
+      const isPassword = passwordInput.type === 'password';
+      passwordInput.type = isPassword ? 'text' : 'password';
+
+      // Toggle eye icon (open/closed)
+      iconElement.innerHTML = isPassword
+        ? '<svg viewBox="0 0 24 24"><path d="M12 4.5C7.5 4.5 3.7 7.6 2 12c1.7 4.4 5.5 7.5 10 7.5s8.3-3.1 10-7.5c-1.7-4.4-5.5-7.5-10-7.5zm0 12c-2.5 0-4.5-2-4.5-4.5S9.5 7.5 12 7.5 16.5 9.5 16.5 12 14.5 16.5 12 16.5zm-2.5-3.5l5-5 1.5 1.5-5 5z"/></svg>'
+        : '<svg viewBox="0 0 24 24"><path d="M12 4.5C7.5 4.5 3.7 7.6 2 12c1.7 4.4 5.5 7.5 10 7.5s8.3-3.1 10-7.5c-1.7-4.4-5.5-7.5-10-7.5zm0 12c-2.5 0-4.5-2-4.5-4.5S9.5 7.5 12 7.5 16.5 9.5 16.5 12 14.5 16.5 12 16.5zm0-7.5a3 3 0 1 0 0 6 3 3 0 1 0 0-6z"/></svg>';
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload and Ask</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <style>
+        .upload-container {
+            max-width: 500px;
+            margin: 50px auto;
+            text-align: center;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            background-color: #f9f9f9;
+        }
+
+        .upload-container input[type="file"] {
+            display: none;
+        }
+
+        .upload-container label {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .upload-container label:hover {
+            background-color: #0056b3;
+        }
+
+        .upload-container .status {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #333;
+        }
+
+        .question-form {
+            margin-top: 30px;
+        }
+
+        .question-form input[type="text"] {
+            width: 80%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .question-form button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .question-form button:hover {
+            background-color: #0056b3;
+        }
+
+        .response {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="upload-container">
+        <h2>Upload a PDF File</h2>
+        <input type="file" id="pdf-file" accept=".pdf">
+        <label for="pdf-file">Choose PDF</label>
+        <div class="status" id="upload-status"></div>
+
+        <form class="question-form" id="question-form">
+            <h3>Ask a Question</h3>
+            <input type="text" id="question-input" placeholder="Type your question here..." required>
+            <button type="submit">Ask</button>
+        </form>
+        <div class="response" id="response"></div>
+    </div>
+    <script src="../js/uploadPdf.js"></script>
+</body>
+</html>

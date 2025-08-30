@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/myDocuments.css">  
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">     
+    <title>KAARchive</title>
+</head>
+<body>
+    <header class="header">
+        <div class="header__container">
+            <img src="../assets/img/k.png" alt="" class="header__img">
+            <a href="#" class="header__logo">My Documents</a>
+            <div class="header__toggle">
+                <i class='bx bx-menu' id="header-toggle"></i>
+            </div>
+        </div>
+    </header>
+    
+    <div class="nav" id="navbar">
+        <nav class="nav__container">
+            <div>
+                <a href="kaarAI.html" class="nav__link nav__logo">
+                    <i class='bx bxs-disc nav__icon' ></i>
+                    <span class="nav__logo-name">KAARchive</span>
+                </a>
+                <a class="emailname">
+                    <p id="user-email"></p>
+                </a>
+                <div class="nav__list">
+                    <div class="nav__items">
+                        <a href="kaarAI.html" class="nav__link">
+                            <i class='bx bx-message-rounded'></i>
+                            <span class="nav__name">Kaar AI</span>
+                        </a>
+                        <a href="myDocuments.html" class="nav__link active">
+                            <i class='bx bx-copy-alt'></i>
+                            <span class="nav__name">My Documents</span>
+                        </a>
+                        <a href="upload.html" class="nav__link">
+                            <i class='bx bx-upload'></i>
+                            <span class="nav__name">Upload</span>
+                        </a>
+                        <a href="help.html" class="nav__link">
+                            <i class='bx bx-help-circle'></i>
+                            <span class="nav__name">Help & FAQ</span>
+                        </a>
+                        <a href="settings.html" class="nav__link">
+                            <i class='bx bxs-cog'></i>
+                            <span class="nav__name">Settings</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <a href="#" id="logout-button" class="nav__link nav__logout">
+                <i class='bx bx-log-out'></i>
+                <span class="nav__name">Log Out</span>
+            </a>
+        </nav>
+    </div>
+
+    <main class="table" id="customers_table">
+        <section class="table__header">
+            <h1>My Documents</h1>
+            <div class="input-group">
+                <input type="search" id="search" placeholder="Search Documents...">
+                <img src="../assets/img/search.png" alt="">
+            </div>
+        </section>
+        <section class="table__body">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Document Name <span class="icon-arrow">&UpArrow;</span></th>
+                        <th>Subject <span class="icon-arrow">&UpArrow;</span></th>
+                        <th>Last Modified <span class="icon-arrow">&UpArrow;</span></th>
+                        <th>Size (KB) <span class="icon-arrow">&UpArrow;</span></th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="files-table-body">
+                    <tr><td colspan="5">Loading...</td></tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <script src="../js/global.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/myDocuments.js"></script>
+</body>
+</html>

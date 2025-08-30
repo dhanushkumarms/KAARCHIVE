@@ -1,0 +1,391 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+@media print {
+ .table, .table__body {
+  overflow: visible;
+  height: auto !important;
+  width: auto !important;
+ }
+}
+
+/*@page {
+    size: landscape;
+    margin: 0; 
+}*/
+
+body {
+    min-height: 100vh;
+    background: url(images/html_table.jpg) center / cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+main.table {
+    width: 82vw;
+    height: 90vh;
+    margin-bottom: 20px;
+    background-color: #fff5;
+
+    /* Fixed: Removed redundant webkit prefixes */
+    -webkit-backdrop-filter: blur(7px);
+    backdrop-filter: blur(7px);
+    box-shadow: 0 .4rem .8rem #0005;
+    border-radius: .8rem;
+
+    overflow: hidden;
+}
+
+.table__header {
+    width: 100%;
+    height: 10%;
+    background-color: #fff4;
+    padding: .8rem 1rem;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    z-index: 2; /* Add z-index to ensure header stays on top */
+}
+
+.table__header .input-group {
+    width: 35%;
+    height: 100%;
+    background-color: #fff5;
+    padding: 0 .8rem;
+    border-radius: 2rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    transition: .2s;
+}
+
+.table__header .input-group:hover {
+    width: 45%;
+    background-color: #fff8;
+    box-shadow: 0 .1rem .4rem #0002;
+}
+
+.table__header .input-group img {
+    width: 1.2rem;
+    height: 1.2rem;
+}
+
+.table__header .input-group input {
+    width: 100%;
+    padding: 0 .5rem 0 .3rem;
+    background-color: transparent;
+    border: none;
+    outline: none;
+}
+
+.table__header .input-group .search {
+    border: blue;
+}
+
+.table__body {
+    width: 95%;
+    max-height: calc(89% - 1.6rem);
+    background-color: #fffb;
+
+    margin: .8rem auto;
+    border-radius: .6rem;
+
+    overflow: auto;
+    overflow: overlay;
+    position: relative; /* Ensure proper positioning context */
+    z-index: 0; /* Lower z-index than the header */
+}
+
+.table__body::-webkit-scrollbar {
+    width: 0.5rem;
+    height: 0.5rem;
+}
+
+.table__body::-webkit-scrollbar-thumb {
+    border-radius: .5rem;
+    background-color: #0004;
+    visibility: hidden;
+}
+
+.table__body:hover::-webkit-scrollbar-thumb {
+    visibility: visible;
+}
+
+table {
+    width: 100%;
+}
+
+td img {
+    width: 36px;
+    height: 36px;
+    margin-right: .5rem;
+    border-radius: 5%;
+    vertical-align: middle;
+}
+
+table, th, td {
+    border-collapse: collapse;
+    padding: 1rem;
+    text-align: left;
+}
+
+thead th {
+    position: sticky;
+    top: 0;
+    left: 0;
+    background-color: #d5d1defe;
+    cursor: pointer;
+    text-transform: capitalize;
+    z-index: 1; /* Add z-index to ensure column headers stay above table content */
+    box-shadow: 0 1px 0 rgba(0,0,0,0.15); /* Add subtle shadow for visual separation */
+}
+
+thead th:last-child {
+    text-align: center; /* Move left */
+    padding-left: 20px; 
+}
+
+tbody tr:nth-child(even) {
+    background-color: #0000000b;
+}
+
+tbody tr {
+    --delay: .1s;
+    transition: .5s ease-in-out var(--delay), background-color 0s;
+}
+
+tbody tr.hide, tbody tr.hide .actions i {
+    opacity: 0;
+    transform: translateX(100%);
+}
+
+tbody tr:hover {
+    background-color: #fff6 !important;
+}
+
+tbody tr td,
+tbody tr td p,
+tbody tr td img, tbody tr.hide .actions i {
+    transition: .2s ease-in-out;
+}
+
+tbody tr.hide td,
+tbody tr.hide td p, tbody tr.hide .actions i {
+    padding: 0;
+    font: 0 / 0 sans-serif;
+    transition: .2s ease-in-out .5s;
+}
+
+tbody tr.hide td img, tbody tr.hide .actions i {
+    width: 0;
+    height: 0;
+    transition: .2s ease-in-out .5s;
+}
+
+.actions i {
+    margin: 0 10px;
+    cursor: pointer;
+    font-size: 18px;
+    position: relative;
+    left: 40px;
+}
+
+.actions i:hover {
+    opacity: 0.7;
+}
+
+.edit {
+    color: #3498db;
+}
+
+.view {
+    color: #2ecc71;
+}
+
+.delete {
+    color: #e74c3c;
+}
+
+@media (max-width: 1000px) {
+    td:not(:first-of-type) {
+        min-width: 12.1rem;
+    }
+}
+
+thead th span.icon-arrow {
+    display: inline-block;
+    width: 1.3rem;
+    height: 1.3rem;
+    border-radius: 50%;
+    border: 1.4px solid transparent;
+
+    text-align: center;
+    font-size: 1rem;
+
+    margin-left: .5rem;
+    transition: .2s ease-in-out;
+}
+
+thead th:hover span.icon-arrow {
+    border: 1.4px solid #6c00bd;
+}
+
+thead th:hover {
+    color: #6c00bd;
+}
+
+thead th.active span.icon-arrow {
+    background-color: #6c00bd;
+    color: #fff;
+}
+
+thead th.asc span.icon-arrow {
+    transform: rotate(180deg);
+}
+
+thead th.active, tbody td.active {
+    color: #6c00bd;
+}
+
+/* Dark Mode Styles - Enhanced for better contrast */
+body.dark-mode {
+    background-color: #121212;
+}
+
+body.dark-mode main.table {
+    background-color: rgba(22, 22, 24, 0.95); /* Darker, more solid background */
+    backdrop-filter: blur(7px);
+    box-shadow: 0 .4rem .8rem rgba(0, 0, 0, 0.4); /* Stronger shadow for depth */
+}
+
+body.dark-mode .table__header {
+    background-color: rgba(30, 30, 35, 0.95); /* More solid header background */
+    border-bottom: 1px solid rgba(80, 80, 90, 0.3); /* Add border to visually separate header */
+}
+
+body.dark-mode .table__header h1 {
+    color: #ffffff; /* Brighter white for better contrast */
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2); /* Text shadow for better readability */
+}
+
+body.dark-mode .input-group {
+    background-color: rgba(50, 50, 55, 0.8); /* More visible search box */
+    border: 1px solid rgba(80, 80, 90, 0.3);
+}
+
+body.dark-mode .input-group:hover {
+    background-color: rgba(60, 60, 70, 0.9);
+    border-color: var(--first-color);
+}
+
+body.dark-mode .input-group input {
+    background-color: transparent;
+    color: #ffffff;
+}
+
+body.dark-mode .input-group img {
+    filter: brightness(1.5); /* Brighten the search icon */
+}
+
+/* Table headers styling */
+body.dark-mode thead th {
+    background-color: #222228; /* More distinct header color */
+    color: #ffffff;
+    border-bottom: 1px solid rgba(150, 150, 170, 0.2);
+    font-weight: 600;
+    box-shadow: 0 1px 0 rgba(100, 100, 120, 0.3);
+}
+
+body.dark-mode thead th:hover {
+    color: var(--first-color);
+    background-color: #28282f;
+}
+
+body.dark-mode thead th.active {
+    color: var(--first-color);
+    background-color: #2d2d35;
+}
+
+body.dark-mode thead th span.icon-arrow {
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+body.dark-mode thead th.active span.icon-arrow {
+    background-color: var(--first-color);
+    color: #ffffff;
+}
+
+/* Table rows styling */
+body.dark-mode tbody tr {
+    color: #e6e6e6; /* Brighter text */
+    border-bottom: 1px solid rgba(100, 100, 120, 0.1);
+}
+
+body.dark-mode tbody tr:nth-child(even) {
+    background-color: rgba(40, 40, 50, 0.6); /* More contrast for alternating rows */
+}
+
+body.dark-mode tbody tr:nth-child(odd) {
+    background-color: rgba(35, 35, 40, 0.3);
+}
+
+body.dark-mode tbody tr:hover {
+    background-color: rgba(105, 35, 208, 0.15) !important; /* Highlight color matching theme */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+/* Make document icons brighter */
+body.dark-mode td img {
+    filter: brightness(1.1); /* Brighten the document icons */
+}
+
+/* Action icons with improved contrast */
+body.dark-mode .actions i {
+    font-size: 19px; /* Slightly larger */
+}
+
+body.dark-mode .actions i.edit {
+    color: #5cc2ff; /* Brighter blue */
+}
+
+body.dark-mode .actions i.view {
+    color: #70e070; /* Brighter green */
+}
+
+body.dark-mode .actions i.delete {
+    color: #ff7a7a; /* Brighter red */
+}
+
+body.dark-mode .actions i:hover {
+    transform: scale(1.15);
+    opacity: 1;
+    transition: all 0.2s ease;
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+}
+
+/* Scrollbar styling for dark mode */
+body.dark-mode .table__body::-webkit-scrollbar-thumb {
+    background-color: rgba(105, 35, 208, 0.5);
+}
+
+body.dark-mode .table__body:hover::-webkit-scrollbar-thumb {
+    background-color: rgba(105, 35, 208, 0.7);
+}
+
+body.dark-mode .table__body::-webkit-scrollbar-track {
+    background-color: rgba(30, 30, 35, 0.4);
+}
+
+/* Status badges with better visibility */
+body.dark-mode .status {
+    font-weight: 500;
+}

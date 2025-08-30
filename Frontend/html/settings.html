@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/settings.css">
+    <title>KAARchive - Settings</title>
+</head>
+<body>
+    <header class="header">
+        <div class="header__container">
+            <img src="../assets/img/k.png" alt="Logo" class="header__img">
+            <a href="#" class="header__logo">Settings</a>
+            <div class="header__toggle">
+                <i class='bx bx-menu' id="header-toggle"></i>
+            </div>
+        </div>
+    </header>
+    
+    <div class="nav" id="navbar">
+        <nav class="nav__container">
+            <div>
+                <a href="kaarAI.html" class="nav__link nav__logo">
+                    <i class='bx bxs-disc nav__icon'></i>
+                    <span class="nav__logo-name">KAARchive</span>
+                </a>
+                <a class="emailname">
+                    <p id="user-email"></p>
+                </a>
+                <div class="nav__list">
+                    <div class="nav__items">
+                        <a href="kaarAI.html" class="nav__link">
+                            <i class='bx bx-message-rounded'></i>
+                            <span class="nav__name">Kaar AI</span>
+                        </a>
+                        <a href="myDocuments.html" class="nav__link">
+                            <i class='bx bx-copy-alt'></i>
+                            <span class="nav__name">My Documents</span>
+                        </a>
+                        <a href="upload.html" class="nav__link">
+                            <i class='bx bx-upload'></i>
+                            <span class="nav__name">Upload</span>
+                        </a>
+                        <a href="help.html" class="nav__link">
+                            <i class='bx bx-help-circle'></i>
+                            <span class="nav__name">Help & FAQ</span>
+                        </a>
+                        <a href="settings.html" class="nav__link active">
+                            <i class='bx bxs-cog'></i>
+                            <span class="nav__name">Settings</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <a href="#" id="logout-button" class="nav__link nav__logout">
+                <i class='bx bx-log-out'></i>
+                <span class="nav__name">Log Out</span>
+            </a>
+        </nav>
+    </div>
+
+    <main class="settings-container">
+        <h1>Settings</h1>
+        
+        <div class="settings-section">
+            <h2>Profile Settings</h2>
+            <form id="profile-form" class="settings-form">
+                <div class="form-group">
+                    <label for="display-name">Display Name</label>
+                    <input type="text" id="display-name" placeholder="Your display name">
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" disabled>
+                </div>
+                
+                <div class="form-group">
+                    <label>Profile Picture</label>
+                    <div class="profile-picture-container">
+                        <img src="../assets/img/profile.png" id="profile-picture" alt="Profile picture">
+                        <div class="upload-controls">
+                            <button type="button" id="upload-picture" class="btn-secondary">Change Picture</button>
+                            <input type="file" id="picture-upload" accept="image/*" hidden>
+                        </div>
+                    </div>
+                </div>
+                
+                <button type="submit" class="btn-primary">Save Profile Changes</button>
+            </form>
+        </div>
+        
+        <div class="settings-section">
+            <h2>Security</h2>
+            <form id="password-form" class="settings-form">
+                <div class="form-group">
+                    <label for="current-password">Current Password</label>
+                    <input type="password" id="current-password" placeholder="Enter current password">
+                </div>
+                
+                <div class="form-group">
+                    <label for="new-password">New Password</label>
+                    <input type="password" id="new-password" placeholder="Enter new password">
+                </div>
+                
+                <div class="form-group">
+                    <label for="confirm-password">Confirm New Password</label>
+                    <input type="password" id="confirm-password" placeholder="Confirm new password">
+                </div>
+                
+                <button type="submit" class="btn-primary">Change Password</button>
+            </form>
+        </div>
+        
+        <div class="settings-section">
+            <h2>Preferences</h2>
+            <div class="settings-form">
+                <div class="preference-item">
+                    <div class="preference-info">
+                        <h3>Dark Mode</h3>
+                        <p>Enable dark mode for better viewing at night</p>
+                    </div>
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="dark-mode-toggle">
+                        <span class="toggle-slider"></span>
+                    </label>
+                </div>
+                
+                <div class="preference-item">
+                    <div class="preference-info">
+                        <h3>Email Notifications</h3>
+                        <p>Receive email notifications about document processing</p>
+                    </div>
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="email-notifications" checked>
+                        <span class="toggle-slider"></span>
+                    </label>
+                </div>
+                
+                <div class="preference-item">
+                    <div class="preference-info">
+                        <h3>Chat History</h3>
+                        <p>Automatically save chat history for future reference</p>
+                    </div>
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="save-chat-history" checked>
+                        <span class="toggle-slider"></span>
+                    </label>
+                </div>
+                
+                <div class="form-group">
+                    <label for="language-select">Language</label>
+                    <select id="language-select">
+                        <option value="en">English</option>
+                        <option value="es">Spanish</option>
+                        <option value="fr">French</option>
+                        <option value="de">German</option>
+                        <option value="zh">Chinese</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        
+        <div class="settings-section danger-zone">
+            <h2>Account Management</h2>
+            <p class="warning-text">The following actions are irreversible. Please proceed with caution.</p>
+            
+            <div class="danger-actions">
+                <div class="danger-action">
+                    <div>
+                        <h3>Clear All Data</h3>
+                        <p>Delete all your documents and chat history</p>
+                    </div>
+                    <button id="clear-data" class="btn-danger">Clear Data</button>
+                </div>
+                
+                <div class="danger-action">
+                    <div>
+                        <h3>Delete Account</h3>
+                        <p>Permanently remove your account and all associated data</p>
+                    </div>
+                    <button id="delete-account" class="btn-danger">Delete Account</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Confirmation Modal -->
+    <div id="confirm-modal" class="modal">
+        <div class="modal-content">
+            <h2 id="modal-title">Confirm Action</h2>
+            <p id="modal-message">Are you sure you want to proceed?</p>
+            <div class="modal-actions">
+                <button id="modal-cancel" class="btn-secondary">Cancel</button>
+                <button id="modal-confirm" class="btn-danger">Confirm</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/main.js"></script>
+    <script src="../js/global.js"></script>
+    <script src="../js/settings.js"></script>
+</body>
+</html>

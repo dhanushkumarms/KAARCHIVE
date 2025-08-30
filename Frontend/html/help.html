@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/help.css">
+    <title>KAARchive - Help & FAQ</title>
+</head>
+<body>
+    <header class="header">
+        <div class="header__container">
+            <img src="../assets/img/k.png" alt="Logo" class="header__img">
+            <a href="#" class="header__logo">Help & FAQ</a>
+            <div class="header__toggle">
+                <i class='bx bx-menu' id="header-toggle"></i>
+            </div>
+        </div>
+    </header>
+    
+    <div class="nav" id="navbar">
+        <nav class="nav__container">
+            <div>
+                <a href="kaarAI.html" class="nav__link nav__logo">
+                    <i class='bx bxs-disc nav__icon'></i>
+                    <span class="nav__logo-name">KAARchive</span>
+                </a>
+                <a class="emailname">
+                    <p id="user-email"></p>
+                </a>
+                <div class="nav__list">
+                    <div class="nav__items">
+                        <a href="kaarAI.html" class="nav__link">
+                            <i class='bx bx-message-rounded'></i>
+                            <span class="nav__name">Kaar AI</span>
+                        </a>
+                        <a href="myDocuments.html" class="nav__link">
+                            <i class='bx bx-copy-alt'></i>
+                            <span class="nav__name">My Documents</span>
+                        </a>
+                        <a href="upload.html" class="nav__link">
+                            <i class='bx bx-upload'></i>
+                            <span class="nav__name">Upload</span>
+                        </a>
+                        <a href="help.html" class="nav__link active">
+                            <i class='bx bx-help-circle'></i>
+                            <span class="nav__name">Help & FAQ</span>
+                        </a>
+                        <a href="settings.html" class="nav__link">
+                            <i class='bx bxs-cog'></i>
+                            <span class="nav__name">Settings</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <a href="#" id="logout-button" class="nav__link nav__logout">
+                <i class='bx bx-log-out'></i>
+                <span class="nav__name">Log Out</span>
+            </a>
+        </nav>
+    </div>
+
+    <main class="help-container">
+        <h1>Help & Frequently Asked Questions</h1>
+        <div class="search-box">
+            <input type="text" id="faq-search" placeholder="Search for help topics...">
+            <i class='bx bx-search'></i>
+        </div>
+
+        <section class="faq-section">
+            <h2>Getting Started</h2>
+            <div class="faq-item">
+                <div class="faq-question">How do I upload a document?
+                    <i class='bx bx-chevron-down toggle-icon'></i>
+                </div>
+                <div class="faq-answer">
+                    <p>You can upload documents in two ways:</p>
+                    <ol>
+                        <li>Go to the <strong>Upload</strong> page from the sidebar menu and drag & drop your file or click to select it.</li>
+                        <li>On the <strong>Kaar AI</strong> page, you can upload a document directly in the chat interface.</li>
+                    </ol>
+                    <p>We support the following file formats: PDF, DOC, DOCX, PPT, PPTX, and TXT.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">What types of files can I upload?
+                    <i class='bx bx-chevron-down toggle-icon'></i>
+                </div>
+                <div class="faq-answer">
+                    <p>KAARchive currently supports the following file formats:</p>
+                    <ul>
+                        <li>PDF (.pdf)</li>
+                        <li>Microsoft Word (.doc, .docx)</li>
+                        <li>PowerPoint (.ppt, .pptx)</li>
+                        <li>Text files (.txt)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Is there a file size limit?
+                    <i class='bx bx-chevron-down toggle-icon'></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes, there is a 10MB file size limit for all documents. If your document exceeds this limit, consider splitting it into smaller files or compressing it before uploading.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="faq-section">
+            <h2>Using Kaar AI</h2>
+            <div class="faq-item">
+                <div class="faq-question">How do I ask questions about my document?
+                    <i class='bx bx-chevron-down toggle-icon'></i>
+                </div>
+                <div class="faq-answer">
+                    <p>After uploading a document:</p>
+                    <ol>
+                        <li>Wait for the document to be processed (you'll see a "Ready" status)</li>
+                        <li>Type your question in the chat input box at the bottom of the AI chat interface</li>
+                        <li>Press Enter or click the send button</li>
+                    </ol>
+                    <p>The AI will analyze your document and provide answers based on its content.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">What kinds of questions can I ask?
+                    <i class='bx bx-chevron-down toggle-icon'></i>
+                </div>
+                <div class="faq-answer">
+                    <p>You can ask virtually any question about the content of your document. For example:</p>
+                    <ul>
+                        <li>"What is the main topic of this document?"</li>
+                        <li>"Summarize section 3 for me"</li>
+                        <li>"What are the key findings in this report?"</li>
+                        <li>"Extract all dates mentioned in the document"</li>
+                        <li>"What does the author say about [specific topic]?"</li>
+                    </ul>
+                    <p>The more specific your question, the more precise the answer will be.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">How accurate are the AI responses?
+                    <i class='bx bx-chevron-down toggle-icon'></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Kaar AI strives to provide accurate information based on the content of your documents. However, AI technology has limitations:</p>
+                    <ul>
+                        <li>It can only answer based on information contained in the document</li>
+                        <li>It may occasionally misinterpret complex language or context</li>
+                        <li>For documents with poor formatting or image-based text, accuracy may be reduced</li>
+                    </ul>
+                    <p>Always verify important information directly in your original document.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="faq-section">
+            <h2>Account & Privacy</h2>
+            <div class="faq-item">
+                <div class="faq-question">Is my data secure?
+                    <i class='bx bx-chevron-down toggle-icon'></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes, we take data security very seriously:</p>
+                    <ul>
+                        <li>All documents are encrypted during storage and transmission</li>
+                        <li>Your files are only accessible to you</li>
+                        <li>We do not share your documents or chat history with third parties</li>
+                        <li>You can delete your documents at any time from "My Documents" page</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">How do I delete my account?
+                    <i class='bx bx-chevron-down toggle-icon'></i>
+                </div>
+                <div class="faq-answer">
+                    <p>To delete your account:</p>
+                    <ol>
+                        <li>Go to Settings</li>
+                        <li>Scroll down to the Account Management section</li>
+                        <li>Click on "Delete Account"</li>
+                        <li>Confirm your decision</li>
+                    </ol>
+                    <p>Please note that account deletion is permanent and will remove all your documents and chat history.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="support-contact">
+            <h2>Still need help?</h2>
+            <p>Our support team is ready to assist you with any questions or issues.</p>
+            <a href="mailto:support@kaarchive.com" class="contact-btn">
+                <i class='bx bx-envelope'></i> Contact Support
+            </a>
+        </section>
+    </main>
+
+    <script src="../js/main.js"></script>
+    <script src="../js/global.js"></script>
+    <script src="../js/help.js"></script>
+</body>
+</html>

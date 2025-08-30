@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <title>Kaarchive - Upload</title>
+  </head>
+  <body>
+    <header class="header">
+      <div class="header__container">
+        <img src="../assets/img/k.png" alt="Logo" class="header__img">
+        <a href="#" class="header__logo">Upload Your Documents</a>
+        <div class="header__toggle">
+          <i class='bx bx-menu' id="header-toggle"></i>
+        </div>
+      </div>
+    </header>
+    <div class="nav" id="navbar">
+      <nav class="nav__container">
+        <div>
+          <a href="kaarAI.html" class="nav__link nav__logo">
+            <i class='bx bxs-disc nav__icon'></i>
+            <span class="nav__logo-name">KAARchive</span>
+          </a>
+          <!-- Display the logged-in email (this should be set dynamically) -->
+          <div class="emailname">
+            <p id="user-email"></p>
+          </div>
+          <div class="nav__list">
+            <div class="nav__items">
+              <a href="kaarAI.html" class="nav__link">
+                <i class='bx bx-message-rounded'></i>
+                <span class="nav__name">Kaar AI</span>
+              </a>
+              <a href="myDocuments.html" class="nav__link">
+                <i class='bx bx-copy-alt'></i>
+                <span class="nav__name">My Documents</span>
+              </a>
+              <a href="upload.html" class="nav__link active">
+                <i class='bx bx-upload'></i>
+                <span class="nav__name">Upload</span>
+              </a>
+              <a href="help.html" class="nav__link">
+                <i class='bx bx-help-circle'></i>
+                <span class="nav__name">Help & FAQ</span>
+              </a>
+              <a href="settings.html" class="nav__link">
+                <i class='bx bxs-cog'></i>
+                <span class="nav__name">Settings</span>
+              </a>
+            </div>
+          </div>
+        </div>
+        <a href="#" id="logout-button" class="nav__link nav__logout">
+          <i class='bx bx-log-out'></i>
+          <span class="nav__name">Log Out</span>
+        </a>
+      </nav>
+    </div>
+    <main>
+      <div class="container">
+        <div class="card">
+          <h3>Upload Files</h3>
+          <div class="drop_box">
+            <i class='bx bxs-cloud-upload icon'></i>
+            <header>
+              <h4>Select File here</h4>
+            </header>
+            <p>Files Supported: <span>.pdf, .doc, .docx, .ppt, .pptx, .txt</span></p>
+            <!-- The file input is hidden -->
+            <input type="file" hidden accept=".pdf,.doc,.docx,.ppt,.pptx,.txt" id="fileID">
+            <button class="btn">Choose File</button>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script src="../js/global.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/upload.js"></script>   
+  </body>
+  </html>

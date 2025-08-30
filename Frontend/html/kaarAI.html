@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/kaarAI.css">
+    <title>Kaarchive - AI Assistant</title>
+</head>
+<body>     
+    <header class="header">
+        <div class="header__container">
+            <img src="../assets/img/k.png" alt="" class="header__img">
+            <a href="#" class="header__logo">Kaar AI Assistant</a>
+            <div class="header__toggle">
+                <i class='bx bx-menu' id="header-toggle"></i>
+            </div>
+        </div>
+    </header>
+    <div class="nav" id="navbar">
+        <nav class="nav__container">
+            <div>
+                <a href="kaarAI.html" class="nav__link nav__logo">
+                    <i class='bx bxs-disc nav__icon'></i>
+                    <span class="nav__logo-name">KAARchive</span>
+                </a>
+                <a class="emailname">
+                    <p id="user-email"></p>
+                </a>
+                <div class="nav__list">
+                    <div class="nav__items">
+                        <a href="kaarAI.html" class="nav__link active">
+                            <i class='bx bx-message-rounded'></i>
+                            <span class="nav__name">Kaar AI</span>
+                        </a>
+                        <a href="myDocuments.html" class="nav__link">
+                            <i class='bx bx-copy-alt'></i>
+                            <span class="nav__name">My Documents</span>
+                        </a>
+                        <a href="upload.html" class="nav__link">
+                            <i class='bx bx-upload'></i>
+                            <span class="nav__name">Upload</span>
+                        </a>
+                        <a href="help.html" class="nav__link">
+                            <i class='bx bx-help-circle'></i>
+                            <span class="nav__name">Help & FAQ</span>
+                        </a>
+                        <a href="settings.html" class="nav__link">
+                            <i class='bx bxs-cog'></i>
+                            <span class="nav__name">Settings</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <a href="#" id="logout-button" class="nav__link nav__logout">
+                <i class='bx bx-log-out'></i>
+                <span class="nav__name">Log Out</span>
+            </a>
+        </nav>
+    </div>
+
+    <main class="main-content">
+        <div class="ai-interface">
+            <div class="ai-sidebar">
+                <h2>AI Document Assistant</h2>
+                <p class="description">Upload a document and ask questions about its content.</p>
+                
+                <div class="file-upload-section">
+                    <div class="drop_box" id="document-drop-area">
+                        <i class='bx bxs-cloud-upload icon'></i>
+                        <header>
+                            <h4>Select File</h4>
+                        </header>
+                        <p>Files Supported: <span>.pdf, .doc, .docx, .ppt, .pptx, .txt</span></p>
+                        <input type="file" hidden accept=".pdf,.doc,.docx,.ppt,.pptx,.txt" id="fileID">
+                        <button class="btn">Choose File</button>
+                    </div>
+                    
+                    <div class="document-info" id="document-info" style="display: none;">
+                        <div class="document-preview">
+                            <img src="" alt="PDF icon" id="document-icon">
+                            <h4 id="document-name">document.pdf</h4>
+                        </div>
+                        <div class="document-status">
+                            <span class="status-badge" id="doc-status">Processing...</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Chat History Section -->
+                <div class="chat-history-section">
+                    <h3>Chat History</h3>
+                    <div class="chat-history-list" id="chat-history-list">
+                        <!-- Chat history items will be loaded here -->
+                        <div class="chat-history-empty">Loading chat history...</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ai-chat">
+                <div class="chat-header">
+                    <h3>Chat with Kaar AI</h3>
+                    <div class="chat-controls">
+                        <button id="new-chat-btn" title="New Chat">
+                            <i class='bx bx-plus'></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="chat-messages" id="chat-messages">
+                    <!-- Messages will be added here by JavaScript -->
+                    <div class="message ai-message">
+                        <img src="../assets/img/k.png" alt="AI Icon" class="chat-icon">
+                        <p class="message-content">Hello! How can I assist you today?</p>
+                    </div>
+                    <div class="message user-message">
+                        <img src="../assets/img/profile.png" alt="User Icon" class="chat-icon">
+                        <p class="message-content">What is the status of my document?</p>
+                    </div>
+                </div>
+                
+                <div class="chat-input-container">
+                    <textarea id="user-input" placeholder="Type your question here..."></textarea>
+                    <button id="send-message-btn" class="send-btn">
+                        <i class='bx bx-send'></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- File Upload Modal -->
+    <div id="upload-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Upload Document</h3>
+                <span id="close-modal" class="close">&times;</span>
+            </div>
+            
+            <!-- Upload Tabs -->
+            <div class="upload-tabs">
+                <button class="upload-tab active" data-target="local-upload-section">Upload from Device</button>
+                <button class="upload-tab" data-target="blob-files-section">Choose from Blob</button>
+            </div>
+            
+            <!-- Local Upload Section -->
+            <div id="local-upload-section" class="upload-section active">
+                <div class="upload-area">
+                    <i class="bx bx-cloud-upload"></i>
+                    <h4>Drag and drop files here</h4>
+                    <p>or</p>
+                    <input type="file" id="file-input" hidden>
+                    <button onclick="document.getElementById('file-input').click()" class="upload-btn">
+                        <i class="bx bx-file"></i> Browse Files
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Blob Files Section -->
+            <div id="blob-files-section" class="upload-section">
+                <div id="blob-files-loading" class="loading-indicator">
+                    <div class="loading-spinner"></div>
+                    <p>Loading your files...</p>
+                </div>
+                
+                <div id="blob-files-grid" class="blob-file-grid">
+                    <!-- Blob files will be loaded here -->
+                </div>
+                
+                <div class="blob-action-buttons">
+                    <button id="select-blob-btn" class="blob-action-button" disabled>Select File</button>
+                    <button id="cancel-blob-btn" class="blob-action-button cancel">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/global.js"></script>
+    <script src="../js/kaarAI.js"></script>
+    <script src="../js/blobFileManager.js"></script>
+    <script src="../js/chatHistory.js"></script>
+</body>
+</html>
